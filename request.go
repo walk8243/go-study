@@ -7,7 +7,7 @@ import (
 	"io/ioutil"
 )
 
-func main() {
+func request() {
 	resp, err := http.Get("https://www.yahoo.co.jp/")
 	if err != nil {
 		log.Fatal(err)

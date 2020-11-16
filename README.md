@@ -7,5 +7,5 @@ Go言語の学習
 [Dockerイメージ](https://hub.docker.com/_/golang)内で実行することを想定しています。
 
 ```.sh
-go run main.go
+go run *.go
 ```
