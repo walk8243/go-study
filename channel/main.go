@@ -14,11 +14,15 @@ func say(c chan bool) {
 }
 
 func main() {
-    channel := make(chan bool)
-	go say(channel)
+	channels := []chan bool{make(chan bool), make(chan bool)}
+	for _, v := range channels {
+		go say(v)
+	}
 	
 	fmt.Println("この文章が数字より先に表示されます")
-
-    b := <- channel
-    fmt.Println(b)
+	
+	for _, v := range channels {
+		b := <- v
+		fmt.Println(b)
+	}
 }
