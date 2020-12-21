@@ -1,8 +1,8 @@
 package main
 
 import (
-    "fmt"
-    "time"
+	"fmt"
+	"time"
 )
 
 func say(c chan bool) {
@@ -10,19 +10,18 @@ func say(c chan bool) {
         time.Sleep(1000 * time.Millisecond)
         fmt.Println(i)
     }
-    c <- true
+	c <- true
 }
 
 func main() {
-	channels := []chan bool{make(chan bool), make(chan bool)}
-	for _, v := range channels {
-		go say(v)
+	channel := make(chan bool)
+	count := 5
+
+	for i := 0; i < count; i++ {
+		go say(channel)
 	}
 	
-	fmt.Println("この文章が数字より先に表示されます")
-	
-	for _, v := range channels {
-		b := <- v
-		fmt.Println(b)
+	for i := 0; i < count; i++ {
+		fmt.Println(<- channel)
 	}
 }
