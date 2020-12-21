@@ -1,5 +1,10 @@
 package main
 
+import (
+	"fmt"
+	"math"
+)
+
 func f(a int, b int) (int, int) {
 	c := a + b
 	d := a * b
@@ -26,4 +31,12 @@ func isPrimeNumber(number int) (bool) {
 		}
 	}
 	return flag
+}
+
+func main() {
+	digit := 3
+
+	number := int(math.Pow(10, float64(digit))) - 1
+	primes := getPrimeNumber(number)
+	fmt.Println(primes)
 }

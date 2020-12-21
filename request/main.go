@@ -19,3 +19,7 @@ func request() {
 	}
 	fmt.Printf("%s", robots)
 }
+
+func main() {
+	request()
+}
